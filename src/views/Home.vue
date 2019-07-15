@@ -1,18 +1,38 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="row vertical-center main-row">
+	  	<div class="col-md-6 info-body">
+		    <h2>Quizme</h2>
+		    <img src="@/assets/img/home.jpeg" alt="Responsive image">
+	    </div>
+	    <category :categories='categories' :addSelected='addSelected' :logAnswer='logAnswer' :selectedCategory='selectedCategory'/>
+     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import category from '@/components/home/category.vue' 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+  name: 'home', 
+  components:{
+		category
+	},
+   data(){
+      return{        
+      	categories:['General Quiz', 'UTME','WASSCE'],
+        selectedIndex:null,
+        selectedCategory:null
+      }
+    },
+    methods:{
+        logAnswer(index){
+            this.selectedIndex = index
+            this.selectedCategory = this.categories[index]
+        },
+        addSelected(index){
+            if(this.selectedIndex == index){
+                return 'selected';
+            }
+        },  
+        
+    }
 }
 </script>

@@ -1,20 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header :isHome='isHome'/>
+     <div class="page-layout col-md-12">
+        <router-view/>
     </div>
-    <router-view/>
+
   </div>
 </template>
+<script>
+  import Header from '@/views/Header.vue'
+  export default{
+    components:{
+      Header
+    },
+    data(){
+      return{
+        isHome:true,
+      }
+    },
+    watch:{
+        $route(){
+            if(this.$route.name != 'home'){
+                this.isHome = false
+            }
+            else{
+                this.isHome = true
+            } 
+        } 
+    },
+    mounted(){
+        if(this.$route.name != 'home'){
+                this.isHome = false
+        }
+        else{
+            this.isHome = true
+        } 
+    }
+  }
+</script>
+
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 #nav {
   padding: 30px;
