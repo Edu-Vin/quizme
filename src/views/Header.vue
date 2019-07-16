@@ -3,7 +3,7 @@
 		<b-navbar toggleable="lg" type="dark" variant="info">
 			<b-container>
 			    <b-navbar-brand to="/">Quizme</b-navbar-brand>
-			     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+			     <b-navbar-toggle target="nav-collapse" v-if='!isHome'></b-navbar-toggle>
 				<b-collapse id="nav-collapse" is-nav v-if='!isHome'>
 			      <b-navbar-nav>
 			        <b-nav-item to="/quiz/general">General Quiz</b-nav-item>
