@@ -8,37 +8,34 @@
   </div>
 </template>
 <script>
-  import Header from '@/views/Header.vue'
-  export default{
-    components:{
-      Header
-    },
-    data(){
-      return{
-        isHome:true,
+import Header from '@/views/Header.vue'
+export default {
+  components: {
+    Header
+  },
+  data () {
+    return {
+      isHome: true
+    }
+  },
+  watch: {
+    $route () {
+      if (this.$route.name != 'home') {
+        this.isHome = false
+      } else {
+        this.isHome = true
       }
-    },
-    watch:{
-        $route(){
-            if(this.$route.name != 'home'){
-                this.isHome = false
-            }
-            else{
-                this.isHome = true
-            } 
-        } 
-    },
-    mounted(){
-        if(this.$route.name != 'home'){
-                this.isHome = false
-        }
-        else{
-            this.isHome = true
-        } 
+    }
+  },
+  mounted () {
+    if (this.$route.name != 'home') {
+      this.isHome = false
+    } else {
+      this.isHome = true
     }
   }
+}
 </script>
-
 
 <style>
 #app {

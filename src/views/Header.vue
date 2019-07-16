@@ -17,7 +17,7 @@
 	</div>
 </template>
 <script>
-export default{
-	props:['isHome']
+export default {
+  props: ['isHome']
 }
 </script>

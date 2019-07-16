@@ -7,17 +7,17 @@
             <p class='text-center' v-if="section == 'Amount'"> {{section}} of questions </p>
             <p class='text-center' v-if="section == 'Difficulty'"> {{section}} Level </p>
             <div class='category-wrapper mt-5'>
-                <h5 v-for="(preference, index) in preferences" 
+                <h5 v-for="(preference, index) in preferences"
                 :key='index'
-                @click="logAnswer(index)" 
+                @click="logAnswer(index)"
                 :class="addSelected(index)"
                 >
                 	{{preference}}
                 </h5>
-                <b-button 
-                variant="primary" 
-                @click='next' 
-                v-if='lastOption == false' 
+                <b-button
+                variant="primary"
+                @click='next'
+                v-if='lastOption == false'
                 :disabled="selectedIndex === null"
                 >Next
             	</b-button>
@@ -29,19 +29,19 @@
 	 </div>
 </template>
 <script type="text/javascript">
-	
-	export default{
-		name:'preferences',
-		props:{
-			preferences:Array,
-			logAnswer:Function,
-			addSelected:Function,
-			next:Function,
-			section:String,
-			lastOption:Boolean,
-			startQuiz:Function,
-			selectedIndex:Number
-		}
 
-	}
+export default {
+  name: 'preferences',
+  props: {
+    preferences: Array,
+    logAnswer: Function,
+    addSelected: Function,
+    next: Function,
+    section: String,
+    lastOption: Boolean,
+    startQuiz: Function,
+    selectedIndex: Number
+  }
+
+}
 </script>

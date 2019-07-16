@@ -5,10 +5,10 @@
 	    </div>
 </template>
 <script>
-export default{
-	name:'',
-	props:{
-		subjectPic:String
-	}
+export default {
+  name: '',
+  props: {
+    subjectPic: String
+  }
 }
 </script>

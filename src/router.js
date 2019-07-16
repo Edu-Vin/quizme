@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue' 
+import Home from './views/Home.vue'
 import General from './views/General.vue'
 import Exam from './views/Exam.vue'
 
 Vue.use(Router)
 
-
 export default new Router({
-  history:true,
+  history: true,
   mode: 'history',
   routes: [
     {
@@ -23,10 +22,10 @@ export default new Router({
     },
 
     {
-        path: '/quiz/exam/:type',
-        name: 'exam',
-        component: Exam
-    },
+      path: '/quiz/exam/:type',
+      name: 'exam',
+      component: Exam
+    }
 
   ]
 })

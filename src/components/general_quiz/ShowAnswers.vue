@@ -12,14 +12,14 @@
 		  </radial-progress-bar>
 		  <b-button variant="primary" class='mt-4' @click='showAnswer'>Show Answers</b-button>
 		</div>
-		
+
 		<div class='show-answer mt-4' v-if="show_answer == true">
-			<div 
-			v-for='(current, index) in questions' 
+			<div
+			v-for='(current, index) in questions'
 			:key='index'
 			>
 				<h5 v-if="current.section != ''" v-html="current.section"></h5>
-				<h5 
+				<h5
 				v-html='index+1 +") "+ current.question'>
 				</h5>
 				<p v-if="current.correct_answer" class='pl-3'
@@ -33,29 +33,29 @@
 
 </template>
 <script>
-	import RadialProgressBar from 'vue-radial-progress'
-	export default{
-		name:'ShowAnswers',
-		components: {
+import RadialProgressBar from 'vue-radial-progress'
+export default {
+  name: 'ShowAnswers',
+  components: {
 		    RadialProgressBar
-		},
-		props:{
-			questions:Array,
-			completedSteps:Number,
-			restartQuiz:Function
-		},
-		data () {
+  },
+  props: {
+    questions: Array,
+    completedSteps: Number,
+    restartQuiz: Function
+  },
+  data () {
 		    return {
 		      totalSteps: this.questions.length,
-		      bgcolor:'#8992BA',
-		      show_answer:false
+		      bgcolor: '#8992BA',
+		      show_answer: false
 		    }
 	  	},
-	  	methods:{
-	  		showAnswer(){
-	  			this.show_answer = true;
+	  	methods: {
+	  		showAnswer () {
+	  			this.show_answer = true
 	  		}
 	  	}
-	}
+}
 
 </script>

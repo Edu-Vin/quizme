@@ -11,7 +11,7 @@
 		<div class='category-wrapper mt-4' v-if='currentQuestion != null'>
 			<p v-html="currentQuestion.question"></p>
 			<div class='answers mt-5'>
-				<h5 v-for="(answer, index) in shuffledAnswers" 
+				<h5 v-for="(answer, index) in shuffledAnswers"
 			    	:key="index"
 			    	@click="selectedAnswer(index)"
 			    	:class="answerClass(index)"
@@ -19,57 +19,56 @@
 			    	>
 			    </h5>
             	<b-button variant="primary" @click="getAnswer" :disabled="selectedIndex === null && !answered">Next</b-button>
-			</div>	
+			</div>
 		</div>
 	</div>
 </template>
 <script>
-import {selectedAnswer, getAnswer, answerClass} from '@/js/general.js'
+import { selectedAnswer, getAnswer, answerClass } from '@/js/general.js'
 import _ from 'lodash'
-export default{
-	name:'QuestionBox',
-	props:{
-		currentQuestion:Object,
-		loader:Boolean,
-		nextQuestion:Function,
-		numAnswered:Number,
-		numTotal:Number,
-		correctAnswer:Function
-		
-	},
-	data(){
-			return{
-				selectedIndex:null,
-				correctIndex:null,
-				shuffledAnswers:[],
-				answered:false,
-				questions:{},
-			}
-		},
-		watch:{
-			currentQuestion:{
-				immediate: true,
-				handler() {
-					this.selectedIndex = null,
-					this.answered = false
-					if(this.currentQuestion != null){
-						this.shuffleAnswers()
-					}
-					
-				}
-			}
-		},
-		methods:{
-			selectedAnswer,
-			getAnswer,
-			answerClass,
+export default {
+  name: 'QuestionBox',
+  props: {
+    currentQuestion: Object,
+    loader: Boolean,
+    nextQuestion: Function,
+    numAnswered: Number,
+    numTotal: Number,
+    correctAnswer: Function
 
-			shuffleAnswers(){
-				this.questions = this.currentQuestion;
-				let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
-				this.shuffledAnswers = _.shuffle(answers)
-				this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
-			},
-		},
+  },
+  data () {
+    return {
+      selectedIndex: null,
+      correctIndex: null,
+      shuffledAnswers: [],
+      answered: false,
+      questions: {}
+    }
+  },
+  watch: {
+    currentQuestion: {
+      immediate: true,
+      handler () {
+        this.selectedIndex = null,
+        this.answered = false
+        if (this.currentQuestion != null) {
+          this.shuffleAnswers()
+        }
+      }
+    }
+  },
+  methods: {
+    selectedAnswer,
+    getAnswer,
+    answerClass,
+
+    shuffleAnswers () {
+      this.questions = this.currentQuestion
+      let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
+      this.shuffledAnswers = _.shuffle(answers)
+      this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
+    }
+  }
 }
 </script>
