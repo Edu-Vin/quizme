@@ -1,6 +1,6 @@
 # quizme
 
-A web app that helps students prepare for UTME/WASSCE also practice general questions based on prefered subjects.
+A web app that helps students prepare for UTME/WASSCE and also practice general questions based on prefered subjects.
 
 Questions for the UTME and WASSCE sections are pulled from API developed by <a href="https://questions.aloc.ng">ALOC</a>, a platform with a database of major Nigeria exams past questions while the questions from General section are pulled from <a href="https://opentdb.com">Open Trivia</p>
 
