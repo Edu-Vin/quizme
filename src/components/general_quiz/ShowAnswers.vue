@@ -35,27 +35,27 @@
 <script>
 import RadialProgressBar from 'vue-radial-progress'
 export default {
-  name: 'ShowAnswers',
-  components: {
-		    RadialProgressBar
-  },
-  props: {
-    questions: Array,
-    completedSteps: Number,
-    restartQuiz: Function
-  },
-  data () {
-		    return {
-		      totalSteps: this.questions.length,
-		      bgcolor: '#8992BA',
-		      show_answer: false
-		    }
-	  	},
-	  	methods: {
-	  		showAnswer () {
-	  			this.show_answer = true
-	  		}
+	name: 'ShowAnswers',
+	  components: {
+			    RadialProgressBar
+	},
+	props: {
+	    questions: Array,
+	    completedSteps: Number,
+	    restartQuiz: Function
+	},
+	data () {
+	    return {
+	      totalSteps: this.questions.length,
+	      bgcolor: '#8992BA',
+	      show_answer: false
+	    }
+	},
+	methods: {
+	  	showAnswer () {
+	  		this.show_answer = true
 	  	}
+	}
 }
 
 </script>
